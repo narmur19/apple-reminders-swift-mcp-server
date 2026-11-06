@@ -34,11 +34,10 @@ let package = Package(
             name: "reminders-cli",
             dependencies: ["RemindersKit"]
         ),
-        // Test target
-        .testTarget(
-            name: "RemindersKitTests",
-            dependencies: ["RemindersKit"]
-        ),
+        // Test target removed: upstream Package.swift referenced a
+        // RemindersKitTests target with no Tests/ directory present in this
+        // checkout, causing SwiftPM to fall back to overlapping-sources with
+        // the main targets and fail the build. Not needed to run the CLI.
     ]
 )
 
